@@ -53,37 +53,63 @@ local function create(class_or_instance: string|Instance, properties: { [unknown
 end
 
 export type Instances = {
+    -- containers
     Folder: Folder,
+    Configuration: Configuration,
+
+    -- layer collectors
+    ScreenGui: ScreenGui,
+    SufaceGui: SurfaceGui,
     BillboardGui: BillboardGui,
-    CanvasGroup: CanvasGroup,
+
+    -- ui objects
     Frame: Frame,
+    CanvasGroup: CanvasGroup,
     ImageButton: ImageButton,
     ImageLabel: ImageLabel,
-    ScreenGui: ScreenGui,
     ScrollingFrame: ScrollingFrame,
-    SurfaceGui: SurfaceGui,
     TextBox: TextBox,
     TextButton: TextButton,
     TextLabel: TextLabel,
+    VideoFrame: VideoFrame,
+    Path2D: Path2D,
+
+    -- ui components
     UIAspectRatioConstraint: UIAspectRatioConstraint,
     UICorner: UICorner,
     UIGradient: UIGradient,
-    UIGridLayout: UIGridLayout,
-    UIListLayout: UIListLayout,
     UISizeConstraint: UISizeConstraint,
     UITextSizeConstraint: UITextSizeConstraint,
     UIScale: UIScale,
     UIPadding: UIPadding,
     UIStroke: UIStroke,
     UIFlexItem: UIFlexItem,
+    UIShadow: UIShadow,
+    UIDragDetector: UIDragDetector,
+
+    -- ui layouts
+    UIGridLayout: UIGridLayout,
+    UIListLayout: UIListLayout,
     UIPageLayout: UIPageLayout,
     UITableLayout: UITableLayout,
-    VideoFrame: VideoFrame,
+
+    -- viewports / world ui
     ViewportFrame: ViewportFrame,
-    ProximityPrompt: ProximityPrompt,
-    UIDragDetector: UIDragDetector,
     Camera: Camera,
     WorldModel: WorldModel,
+
+    -- interaction
+    ProximityPrompt: ProximityPrompt,
+
+    -- value objs
+    BoolValue: BoolValue,
+    IntValue: IntValue,
+    NumberValue: NumberValue,
+    StringValue: StringValue,
+    ObjectValue: ObjectValue,
+    ColorValue: Color3Value,
+    VectorValue: Vector3Value,
+    CFrameValue: CFrameValue,
 }
 
 export type function Properties(instance: type?)
