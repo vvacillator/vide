@@ -1,5 +1,5 @@
-local typeof = game and typeof or require "../test/mock".typeof :: never
-local Instance = game and Instance or require "../test/mock".Instance :: never
+local typeof = Instance and typeof or require "../test/mock".typeof :: never
+local Instance = Instance or require "../test/mock".Instance :: never
 
 local defaults = require "./defaults"
 local apply = require "./apply"
@@ -59,7 +59,7 @@ export type Instances = {
 
     -- layer collectors
     ScreenGui: ScreenGui,
-    SufaceGui: SurfaceGui,
+    SurfaceGui: SurfaceGui,
     BillboardGui: BillboardGui,
 
     -- ui objects
@@ -104,6 +104,18 @@ export type Instances = {
     StyleDerive: StyleDerive,
     StyleLink: StyleLink,
     StyleQuery: StyleQuery,
+    -- interaction
+    ProximityPrompt: ProximityPrompt,
+
+    -- value objs
+    BoolValue: BoolValue,
+    IntValue: IntValue,
+    NumberValue: NumberValue,
+    StringValue: StringValue,
+    ObjectValue: ObjectValue,
+    Color3Value: Color3Value,
+    Vector3Value: Vector3Value,
+    CFrameValue: CFrameValue,
 }
 
 export type function Properties(instance: type?)
