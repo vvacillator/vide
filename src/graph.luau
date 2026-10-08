@@ -31,7 +31,14 @@ local function efn(err: string)
     end
 
     trace ..= "\nsource update stacktrace:"
-return trace
+    return trace
+end
+
+local function effect_traceback(err: unknown): string
+    local message = tostring(err)
+    -- Nested effect error already has full thread stack
+    if string.find(message, "^effect error:\n") then return message end
+    return `effect error:\n{debug.traceback(message, 2)}`
 end
 
 local function ycall<T, U>(fn: (T) -> U, arg: T): (boolean, string|U)
@@ -181,13 +188,13 @@ local function evaluate_node<T>(node: Node<T>)
         destroy_owned(node)
 
         push_scope(node)
-        local ok, new_value = pcall(node.effect :: (T) -> T, node.cache)
+        local ok, new_value = xpcall(node.effect :: (T) -> T, effect_traceback, node.cache)
         pop_scope()
 
         if not ok then
             table.clear(update_queue)
             update_queue.n = 0
-            error(`effect error:\n{new_value}\n`, 0)
+            error(new_value, 0)
         end
     
         node.cache = new_value

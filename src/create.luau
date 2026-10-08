@@ -97,26 +97,6 @@ export type Instances = {
     ViewportFrame: ViewportFrame,
     Camera: Camera,
     WorldModel: WorldModel,
-
-    -- interaction
-    ProximityPrompt: ProximityPrompt,
-
-    -- value objs
-    BoolValue: BoolValue,
-    IntValue: IntValue,
-    NumberValue: NumberValue,
-    StringValue: StringValue,
-    ObjectValue: ObjectValue,
-    ColorValue: Color3Value,
-    VectorValue: Vector3Value,
-    CFrameValue: CFrameValue,
-
-    -- styling
-    StyleSheet: StyleSheet,
-    StyleRule: StyleRule,
-    StyleDerive: StyleDerive,
-    StyleLink: StyleLink,
-    StyleQuery: StyleQuery,
 }
 
 export type function Properties(instance: type?)
