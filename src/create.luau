@@ -97,6 +97,13 @@ export type Instances = {
     ViewportFrame: ViewportFrame,
     Camera: Camera,
     WorldModel: WorldModel,
+
+    -- styling
+    StyleSheet: StyleSheet,
+    StyleRule: StyleRule,
+    StyleDerive: StyleDerive,
+    StyleLink: StyleLink,
+    StyleQuery: StyleQuery,
 }
 
 export type function Properties(instance: type?)
